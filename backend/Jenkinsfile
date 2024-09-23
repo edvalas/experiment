@@ -12,6 +12,9 @@ pipeline {
 
             steps {
                 sh '''
+                    node --version
+                    docker --version
+                    ls -la
                     docker build -t nestjs-app .
                 '''
             }
