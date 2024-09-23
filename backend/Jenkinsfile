@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir 'backend'
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
                 }
             }
 
@@ -14,7 +14,7 @@ pipeline {
                 sh '''
                     node --version
                     ls -la
-                    docker images
+                    docker build -t nestjs-app .
                 '''
             }
         }
