@@ -7,7 +7,6 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'backend'
-                    label 'nestjs-app'
                 }
             }
 
