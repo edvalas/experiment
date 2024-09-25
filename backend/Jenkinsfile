@@ -19,11 +19,13 @@ pipeline {
         }
 
         stage('Docker Build') {
-            sh '''
-                docker --version
-                docker build -t nestjs-app .
-                docker images
-            '''
+            steps {
+                sh '''
+                    docker --version
+                    docker build -t nestjs-app .
+                    docker images
+                '''
+            }
         }
     }
 }
