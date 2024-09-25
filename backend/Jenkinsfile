@@ -8,6 +8,7 @@ pipeline {
                     docker --version
                     docker build -t nestjs-app ./backend
                     docker images
+                    docker run --rm -p 3000:3000 nestjs-app
                 '''
             }
         }
