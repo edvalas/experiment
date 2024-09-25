@@ -2,27 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
-
-            steps {
-                sh '''
-                    node --version
-                    ls -la
-                '''
-            }
-        }
-
         stage('Docker Build') {
             steps {
                 sh '''
                     docker --version
-                    docker build -t nestjs-app .
+                    docker build -t nestjs-app ./backend
                     docker images
                 '''
             }
